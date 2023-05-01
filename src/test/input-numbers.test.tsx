@@ -1,0 +1,15 @@
+/* eslint-disable import/no-extraneous-dependencies */
+import { render, fireEvent, screen } from "@testing-library/react";
+import { vi, expect } from "vitest";
+import NumberInput from "../components/number-inputField";
+
+describe("NumberInput", () => {
+  it("should update input value on change", () => {
+    const handleChange = vi.fn();
+    render(<NumberInput value={0} onChange={handleChange} />);
+    const inputElement = screen.getByTitle("inputNumber");
+    fireEvent.change(inputElement, { target: { value: "123" } });
+    expect(inputElement).toHaveValue("123");
+    expect(handleChange).toHaveBeenCalledWith(123);
+  });
+});

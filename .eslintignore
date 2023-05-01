@@ -1,0 +1,8 @@
+public
+dist
+node_modules
+scripts
+src/_dev
+vite.config.ts
+*.css
+*.svg
