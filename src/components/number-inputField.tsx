@@ -10,22 +10,27 @@ const inputStyling = {
 interface NumberInputProps {
   value?: number;
   onChange?: (value: number) => void;
+  title?: string;
 }
 
 // eslint-disable-next-line react/function-component-definition
-const NumberInput: React.FC<NumberInputProps> = ({ value = "", onChange }) => {
+const NumberInput: React.FC<NumberInputProps> = ({
+  value = "",
+  onChange,
+  title,
+}) => {
   const [inputValue, setInputValue] = useState<number | string>(value);
 
   const handleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     const newValue = event.target.value;
 
-    if (!Number.isNaN(parseFloat(newValue)) || newValue === "") {
-      if (/^-?\d*\.?\d*$/.test(newValue)) {
-        setInputValue(newValue);
-        if (onChange) {
-          onChange(parseFloat(newValue));
-        }
+    // if (!Number.isNaN(parseFloat(newValue)) || newValue === "") {
+    if (/^-?\d*\.?\d*$/.test(newValue)) {
+      setInputValue(newValue);
+      if (onChange) {
+        onChange(parseFloat(newValue));
       }
+      // }
     }
   };
 
@@ -36,7 +41,8 @@ const NumberInput: React.FC<NumberInputProps> = ({ value = "", onChange }) => {
       onChange={handleChange}
       className="inputStyling"
       style={inputStyling}
-      title="inputNumber"
+      title={title}
+      data-testid="numberInput"
     />
   );
 };

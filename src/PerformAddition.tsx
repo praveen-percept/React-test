@@ -37,13 +37,22 @@ function PerformAddition() {
 
   return (
     <form style={{ display: "flex", gap: "20px", alignItems: "center" }}>
-      <NumberInput value={input1} onChange={handleInput1Change} />
+      <NumberInput
+        value={input1}
+        onChange={handleInput1Change}
+        title="input1"
+      />
       <p style={{ fontSize: "20px", fontWeight: "500" }}> + </p>
-      <NumberInput value={input2} onChange={handleInput2Change} />
+      <NumberInput
+        value={input2}
+        onChange={handleInput2Change}
+        title="input2"
+      />
       <p style={{ fontSize: "20px", fontWeight: "500" }}> = </p>
       <p
         style={{ fontSize: "20px", fontWeight: "500" }}
         className="inputStyling"
+        title="result"
       >
         {result}
       </p>
