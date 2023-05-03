@@ -1,5 +1,6 @@
-import "./App.css";
-import PerformAddition from "./PerformAddition";
+import PerformAddition from './PerformAddition';
+
+import './App.css';
 
 function App() {
   // const [count, setCount] = useState(0);
@@ -7,7 +8,7 @@ function App() {
   return (
     <div>
       {/* <h1>count is {count}</h1> */}
-      <div style={{ display: "flex", gap: "20px" }}>
+      <div style={{ display: 'flex', gap: '20px' }}>
         {/* <button onClick={() => setCount((count) => count - 1)}>
             DECREMENT
           </button>

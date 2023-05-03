@@ -1,10 +1,10 @@
-import React, { useState } from "react";
+import React, { useState } from 'react';
 
 const inputStyling = {
-  cursor: "initial",
-  fontSize: "16px",
-  width: "60px",
-  alignText: "center",
+  cursor: 'initial',
+  fontSize: '16px',
+  width: '60px',
+  alignText: 'center',
 };
 
 interface NumberInputProps {
@@ -15,7 +15,7 @@ interface NumberInputProps {
 
 // eslint-disable-next-line react/function-component-definition
 const NumberInput: React.FC<NumberInputProps> = ({
-  value = "",
+  value = '',
   onChange,
   title,
 }) => {
