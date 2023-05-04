@@ -85,11 +85,11 @@ export default defineConfig({
   //   url: 'http://127.0.0.1:3000',
   //   reuseExistingServer: !process.env.CI,
   // },
-  webServer: {
-    // command: 'DEBUG=pw:webserver yarn dev', // for linux/mac
-    command: 'set DEBUG=pw:webserver && yarn dev', // for windows
-    url: 'http://localhost:3010',
-    timeout: 1 * 60 * 1000,
-    reuseExistingServer: !process.env.CI,
-  },
+  // webServer: {
+  //   // command: 'DEBUG=pw:webserver yarn dev', // for linux/mac
+  //   command: 'set DEBUG=pw:webserver && yarn dev', // for windows
+  //   url: 'http://localhost:3010',
+  //   timeout: 1 * 60 * 1000,
+  //   reuseExistingServer: !process.env.CI,
+  // },
 });
