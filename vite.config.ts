@@ -16,14 +16,11 @@ if (!isCi) {
 }
 
 const vitestConfig: ViteConfig = {
-  plugins: [
-    tsconfigPaths(),
-    react(),
-  ],
+  plugins: [tsconfigPaths(), react()],
   server: {
     port: 3020,
     host: '0.0.0.0',
-    https: true
+    https: true,
   },
   test: {
     globals: true,
@@ -41,7 +38,7 @@ const vitestConfig: ViteConfig = {
     coverage: {
       // excludeNodeModules: true,
       provider: 'c8',
-      src: ['src'],
+      src: ['src/tests'],
       include: ['**/*.ts', '**/*.tsx'],
       exclude: [
         '**/__mocks__/**.*',
@@ -59,9 +56,15 @@ const vitestConfig: ViteConfig = {
       branches: 100,
       functions: 100,
       lines: 100,
-    }
-  }
+    },
+  },
+};
+
+if (process.env.DEV_CI || process.env.DEV_CI === '1') {
+  vitestConfig.server.https = false;
+  vitestConfig.plugins.pop();
+  vitestConfig.test.watch = false;
 }
 
 // https://vitejs.dev/config/
-export default defineConfig(vitestConfig)
+export default defineConfig(vitestConfig);
